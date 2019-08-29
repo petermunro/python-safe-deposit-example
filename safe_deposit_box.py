@@ -1,3 +1,10 @@
+# Python context manager protocol example
+#
+# - Comment/uncomment Code Block 1 to show unmanaged example.
+# - Comment/uncomment the exception "raise UserWarning(...)" to raise an exception mid-access
+# - Comment/uncomment Code Block 2 to use the managed example
+
+
 class SafeDepositBox(object):
     def __init__(self, boxNumber):
         self.boxNumber = boxNumber
@@ -7,7 +14,7 @@ class SafeDepositBox(object):
 
     def retrieve(self, item):
         print("Retrieving", item, "from box", self.boxNumber)
-        # raise UserWarning("Urgent phone call")
+        # raise UserWarning("Urgent phone call")        # Exception occurring mid-access
         return item
 
 
@@ -16,6 +23,7 @@ def open_safe_deposit(boxNumber):
     return SafeDepositBox(boxNumber)
 
 
+## Code Block 1
 # safeDepositBox = open_safe_deposit(601)
 # print("Accessing contents of safe deposit box:", safeDepositBox)
 # safeStuff = safeDepositBox.retrieve("silver chalice")
@@ -40,6 +48,7 @@ class ManagedSafeDepositBox(object):
         return True
 
 
+## Code Block 2
 with ManagedSafeDepositBox(601) as safeDepositBox:
     print("Accessing contents of safe deposit box:", safeDepositBox)
     safeStuff = safeDepositBox.retrieve("silver chalice")
