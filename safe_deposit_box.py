@@ -3,6 +3,7 @@
 # - Comment/uncomment Code Block 1 to show unmanaged example.
 # - Comment/uncomment the exception "raise UserWarning(...)" to raise an exception mid-access
 # - Comment/uncomment Code Block 2 to use the managed example
+# Another comment
 
 
 class SafeDepositBox(object):
